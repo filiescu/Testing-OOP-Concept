@@ -14,7 +14,7 @@ namespace Clasa_Derivata
 
         public void AddHyperlink(string url)
         {
-            Console.WriteLine("We added a link to" + url);
+            Console.WriteLine("We added a link to" + url); 
         }
     }
 }
