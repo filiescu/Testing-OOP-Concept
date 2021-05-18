@@ -8,21 +8,29 @@ namespace Modificatori_de_acces
 {
     public class Employee
     {
-        public DateTime Birthdate { get; private set; }
+        protected int Id { get; set; }
+        public string Name { get; set; }
 
-        public Employee(DateTime birthdate) // Am creat acest constructor, pt ca am pus private la setarea variabilei Birthdate
+        private int CalculateRating(bool excludeOrders)
         {
-            Birthdate = birthdate;
+            return 0;
         }
-       
-        public int Age
+
+        public void Promote()
         {
-            get
+            var rating = CalculateRating(excludeOrders: true); // private - accesibil numai din interiorul clasei
+            if (rating == 0)
             {
-                var timeSpan = DateTime.Today - Birthdate;
-                var years = timeSpan.Days / 365;
-                return years;
+                Console.WriteLine("Promoted to Level 1");
             }
+            else
+                Console.WriteLine("Promoted to level 2");
+        }
+
+        protected void GetEmployeeDetails()
+        {
+            Console.WriteLine("Name: {0}", Name);
+            Console.WriteLine("Id: {0}", Id);
         }
      
     }
