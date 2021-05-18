@@ -12,6 +12,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
+            //qwq
             //StaticMethod();
             //ConstructorMethod();
             AccessModifiers();
