@@ -1,4 +1,5 @@
 ﻿using Clasa_Derivata;
+using Composition;
 using Constructori;
 using MetodaStatica_MetodaNonstatica;
 using Modificatori_de_acces;
@@ -13,8 +14,9 @@ namespace Program
         {
             //StaticMethod();
             //ConstructorMethod();
-            //AccessModifiers();
-            InheritanceMethod();
+            AccessModifiers();
+            //InheritanceMethod();
+            //CompositionMethod();
         }
        
         ////////////////////// MetodaStatica_MetodaNonstatica ///////////////////////
@@ -58,12 +60,21 @@ namespace Program
         
         static void AccessModifiers()
         {
-            var employee = new Employee(new DateTime(1982, 1, 1));
-            Console.WriteLine(employee.Age);
+            var emp = new Employee();
+            emp.Name = "Florea";
+            Console.WriteLine(emp.Name); // public - accesibil din interiorul şi din exteriorul clasei
+
+            //var rating = employee.CalculateRating(); //eroare -- private - accesibil numai din interiorul clasei
+
+            //Console.WriteLine(employee.GetEmployeeDetails()); // eroare -- protected - accesibil numai din interiorul clasei şi a claselor derivate
+
+            var details_emp = new EmployeeDetails();
+            details_emp.SetDetails();
+            Console.WriteLine(details_emp) ;
         }
 
         ///////////////////////// Mostenire //////////////////////////////////
-        
+
         static void InheritanceMethod()
         {
             var text = new Text();
@@ -72,5 +83,16 @@ namespace Program
             text.FontSize = 3;
         }
 
+        ///////////////////////// Composition //////////////////////////////////
+
+        static void CompositionMethod()
+        {
+            var log = new Logger();
+            var installer = new Installer(log);
+            var dbMigrator = new DbMigrator(log);
+
+            dbMigrator.Migrate();
+            installer.Install();
+        }
     }
 }
