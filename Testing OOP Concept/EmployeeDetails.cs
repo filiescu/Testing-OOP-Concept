@@ -6,8 +6,7 @@
         {
             this.Name = "Maria";
             this.Id = 2;
-            this.GetEmployeeDetails();
-            base.Name = "gf";
+            this.GetEmployeeDetails(); //protected - accesibil numai din interiorul clasei şi a claselor derivate
         }
         public override string ToString()
         {
