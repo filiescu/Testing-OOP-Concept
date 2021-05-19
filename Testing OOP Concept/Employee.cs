@@ -30,7 +30,7 @@ namespace Modificatori_de_acces
         protected void GetEmployeeDetails()
         {
             Console.WriteLine("Name: {0}", Name);
-            Console.WriteLine("Id: {0}", Id);
+            Console.WriteLine("Id: {0}", Id); // protected - accesibil numai din interiorul clasei şi a claselor derivate
         }
      
     }

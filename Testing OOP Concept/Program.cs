@@ -1,4 +1,5 @@
-﻿using Clasa_Derivata;
+﻿using Amazon;
+using Clasa_Derivata;
 using Composition;
 using Constructori;
 using MetodaStatica_MetodaNonstatica;
@@ -13,8 +14,8 @@ namespace Program
         static void Main(string[] args)
         {
             //StaticMethod();
-            //ConstructorMethod();
-            AccessModifiers();
+            ConstructorMethod();
+            //AccessModifiers();
             //InheritanceMethod();
             //CompositionMethod();
         }
@@ -54,6 +55,8 @@ namespace Program
                 Name = "Popescu"
             };
             Console.WriteLine(customer2.Id + " " + customer2.Name);
+
+            Car car = new Car("ABC123"); // Constructorul clasei de baza este initializat inaintea constructorului clasei derivate.
         }
 
         ///////////////////////// Modificatori de acces //////////////////////////////////
@@ -70,7 +73,10 @@ namespace Program
 
             var details_emp = new EmployeeDetails();
             details_emp.SetDetails();
-            Console.WriteLine(details_emp) ;
+            //Console.WriteLine(details_emp.ToString()) ;
+
+            var employeeAmazon = new EmployeeAmazon();
+            //Amazon.RateCalculator calculator = new RateCalculator(); // eroare -- internal -- este accesibil doar in cadrul assembly-ului
         }
 
         ///////////////////////// Mostenire //////////////////////////////////
